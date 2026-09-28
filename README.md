@@ -1,4 +1,4 @@
-# Inkling — Daily Word Puzzle
+https://lovable.dev/projects/1eff179c-d5e6-400b-91a1-7a8bcd4823bc# Inkling — Daily Word Puzzle
 
 A daily five-letter word puzzle, inspired by Wordle. One new word every day (UTC), six guesses, and a global leaderboard to compete on.
 
@@ -57,3 +57,4 @@ src/
 ## License
 
 All rights reserved. Built with [Lovable](https://lovable.dev).
+https://lovable.dev/projects/1eff179c-d5e6-400b-91a1-7a8bcd4823bc
