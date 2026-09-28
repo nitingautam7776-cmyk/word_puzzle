@@ -1,29 +1,59 @@
-# Welcome to your Lovable project
+# Inkling — Daily Word Puzzle
 
-This project was built with [Lovable](https://lovable.dev).
+A daily five-letter word puzzle, inspired by Wordle. One new word every day (UTC), six guesses, and a global leaderboard to compete on.
 
-## Build with Lovable
+## Features
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+- **Daily puzzle** — a deterministic new five-letter answer every day (UTC-based), the same for every player
+- **Wordle-style feedback** — green / yellow / gray tiles after each guess
+- **On-screen + physical keyboard** — play on desktop or mobile
+- **Global leaderboard** — Today and All-time tabs, with your display name shown
+- **Streaks & stats** — track wins, attempts, and your streak over time
+- **Share results** — copy an emoji grid of your game (spoiler-free)
+- **One game per day** — results are saved per player, no re-rolls
+- **Login** — email + password, Google sign-in, and password reset
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## Tech stack
 
-## Development
+- [TanStack Start](https://tanstack.com/start) (React 19, TypeScript, Vite)
+- [Tailwind CSS v4](https://tailwindcss.com) with a letterpress-inspired theme (Fraunces + Work Sans)
+- [shadcn/ui](https://ui.shadcn.com) components
+- Backend: Lovable Cloud (auth, database, server functions) with row-level security
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Getting started
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
 
-## Built with
+Then open http://localhost:5173 and sign up to start playing.
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+> The app expects a Lovable Cloud backend (auth + database). If you fork this repo, you can connect it to your own Lovable project to provision the backend.
+
+## How to play
+
+1. Guess the five-letter word in six tries
+2. Each guess must be a real five-letter word
+3. After each guess, the tiles show how close you were:
+   - 🟩 the letter is in the word and in the right spot
+   - 🟨 the letter is in the word but in the wrong spot
+   - ⬜ the letter is not in the word
+4. A new word arrives every day at midnight UTC
+
+## Project structure
+
+```
+src/
+├── routes/            # Pages (landing, auth, play, leaderboard, reset password)
+├── components/        # Game board, keyboard, header, UI components
+├── lib/
+│   ├── words.ts       # Game logic: answer selection, guess evaluation, streaks
+│   └── game.functions.ts  # Server functions: leaderboard, results, profile
+├── data/              # 12,653 five-letter word list
+└── integrations/      # Backend client (auto-generated)
+```
+
+## License
+
+All rights reserved. Built with [Lovable](https://lovable.dev).
